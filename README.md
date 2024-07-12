@@ -58,7 +58,7 @@ By starting at a lower resolution and gradually increasing it, Progressive Growi
 - Progressive growing can be particularly beneficial for generating larger images or images with complex details.
 - The "Enable Refinement" option provides better quality but increases generation time.
 
-## Examples
+## Examples (Zero Post-Processing)
 ![sample_1](https://github.com/user-attachments/assets/582ec814-fd06-46cb-8edc-a0350a6e163d)
 ---
 **Prompt:** A high-resolution portrait of a woman with sharp facial features, long dark hair, and piercing blue eyes, wearing a black leather jacket, photographed by Annie Leibovitz, 8k resolution
