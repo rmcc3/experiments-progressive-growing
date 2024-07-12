@@ -34,8 +34,6 @@ These changes introduce a highly experimental progressive growing technique to t
    - **Steps:** The number of resolution steps in the progressive growing process.
    - **Enable Refinement:** This uses img2img processing at each step to refine the image. This can improve quality but will increase generation time. Disabling this option will generate images faster but may result in lower quality. **It is recommended to keep this enabled for best results.**
 
-> ⚠️ When setting an image size, the "Width" and "Height" settings should be set higher than the final resolution you want to generate. For example, if you want a 1024x1024 image, set the "Width" and "Height" to 2048, and set max scale to 0.5 (or 1.0 if you want to generate at full resolution). This will generate a high quality 1024x1024 image.
-
 5. **Generate:** Enter your prompt, adjust other settings as desired, and click "Generate."
 
 *Note: If automatic1111 updates the Web UI, you may need to reinstall the script, which may or may not be compatible with the new version. Feel free to make a pull request to convert this to an extension.*
