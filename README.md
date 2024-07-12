@@ -59,13 +59,82 @@ By starting at a lower resolution and gradually increasing it, Progressive Growi
 - The "Enable Refinement" option provides better quality but increases generation time.
 
 ## Examples
+![sample_1](https://github.com/user-attachments/assets/582ec814-fd06-46cb-8edc-a0350a6e163d)
+---
+**Prompt:** A high-resolution portrait of a woman with sharp facial features, long dark hair, and piercing blue eyes, wearing a black leather jacket, photographed by Annie Leibovitz, 8k resolution
 
-- **Fast Generation:**  Set "Min Scale" to 0.5, "Steps" to 2, and disable "Enable Refinement" for a quicker generation process. However, expect lower quality results.
-- **High Quality:**  Set "Min Scale" to 0.25, "Steps" to 4, and enable "Enable Refinement" for higher quality results, but expect longer generation times.
+**Negative Prompt:** low quality, blurry, disfigured, deformed
+
+**Settings:**
+- Width: 2048
+- Height: 2048
+- Min Scale: 0.25
+- Max Scale: 1.0
+- Steps: 5
+- Enable Refinement: Checked
+- Sampling Steps: 100
+- Sampling Method: DPM++ 2M Karras
+- Generated on SD 1.5
+
+In this example, the initial image is generated at a resolution of 512x512 (25% of the final 2048x2048 resolution) and then progressively grown to 2048x2048 over 5 steps, with refinement enabled at each step. The high sampling steps and the use of the DPM++ 2M Karras sampling method will contribute to generating a crisp and detailed portrait.
+
+---
+![sample_2](https://github.com/user-attachments/assets/82f12efb-c07a-4d99-870c-00c21b82f085)
+---
+**Prompt:** An ultra-realistic still life of a wooden table with a vase of colorful flowers, a bowl of fresh fruit, and a bottle of red wine, captured in stunning detail, 4k resolution
+
+**Negative Prompt:** low quality, blurry, unclear, abstract
+
+**Settings:**
+- Width: 2048
+- Height: 1024
+- Min Scale: 0.5
+- Max Scale: 1.0
+- Steps: 4
+- Enable Refinement: Checked
+- Sampling Steps: 80
+- Sampling Method: DPM++ SDE Karras
+- Generated on SD 1.5
+
+For this example, the initial image is generated at a resolution of 1024x512 (50% of the final 2048x1024 resolution) and then progressively grown to 2048x1024 over 4 steps, with refinement enabled at each step. The combination of the detailed prompt, high sampling steps, and the DPM++ SDE Karras sampling method will help generate a crystal-clear still life image.
+
+---
+![00019-2929855477](https://github.com/user-attachments/assets/eaeb7d4c-763d-42e7-9ee4-82df0e3ea466)
+--
+
+**Prompt:** A realistic high-resolution portrait of a 25yo man with sharp facial features and facial hair, in a park on a cloudy day, serious face, detailed face, skin pores, from a distance, outdoors, detailed background
+
+**Negative Prompt:** low quality, blurry, disfigured, deformed, cgi, anime
+
+**Settings:**
+- Width: 2048
+- Height: 2048
+- Min Scale: 0.25
+- Max Scale: 0.7
+- Steps: 4
+- Enable Refinement: Checked
+- Sampling Steps: 100
+- Sampling Method: DPM++ SDE Karras
+- Generated on SDXL
+
+For this example, the initial image is generated at a resolution of 512x512 (25% of the final 2048x2048 resolution) and then progressively grown to 1433x1433 (70% of the final resolution) over 5 steps, with refinement enabled at each step. The high sampling steps and the use of the DPM++ SDE sampling method will contribute to generating a realistic and detailed portrait.
+
+## The Importance of High Sampling Steps
+
+When using the Progressive Growing script, it's crucial to set a high number of sampling steps to ensure the best possible image quality. Sampling steps refer to the number of times the model iteratively refines the generated image during the creation process.
+
+A higher number of sampling steps allows the model to make more precise adjustments to the image, resulting in finer details, smoother transitions, and overall better coherence. This is particularly important when generating high-resolution images, as the increased level of detail requires more precise refinements.
+
+In the example prompts provided in this repository, the sampling steps are set to values ranging from 60 to 100, depending on the complexity of the image and the desired quality. These high values ensure that the generated images are of excellent quality and showcase the full potential of the Progressive Growing technique.
+
+It's important to note that increasing the number of sampling steps also increases the generation time. Therefore, you should find a balance between image quality and generation speed that suits your needs. Experimenting with different values and comparing the results will help you determine the optimal number of sampling steps for your specific use case.
+
+Keep in mind that using a high number of sampling steps is especially beneficial when generating images with high details, complex textures, or multiple objects. In simpler compositions, you may be able to achieve satisfactory results with fewer sampling steps, thereby reducing the generation time.
 
 ## Known Issues
 - Enabling Highres. fix will output a blurry or broken image. This is because the highres. fix is not compatible at this moment. It is recommended to disable this option when using progressive growing.
 - After enabling Highres. fix with progressive growing, and then disabling highres. fix, future images generated with progressive growing will be blurry or broken. To fix this, restart the Web UI.
+- "Euler a" sampler is not compatible with progressive growing at the moment, "Euler" is, however, compatible.
 
 ## Credits
 
